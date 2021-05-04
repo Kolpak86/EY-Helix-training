@@ -33,3 +33,12 @@
         }
     }
 }
+.jumbotron {
+    padding: 4rem 2rem;
+    background-color: #e9ecef;
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 840px;
+    }
+}
