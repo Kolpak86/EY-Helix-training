@@ -1,0 +1,35 @@
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+
+    &.bg-dark {
+        background-color: #343a40 !important;
+    }
+    &.navbar-expand {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+            flex-direction: row;
+            .nav-link {
+                color: rgba(255, 255, 255, 0.5);
+                display: block;
+                padding: 0.5rem 1rem;
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+                text-decoration: none;
+                &:hover {
+                    color: rgba(255, 255, 255, 0.8);
+                }
+            }
+        }
+    }
+}
