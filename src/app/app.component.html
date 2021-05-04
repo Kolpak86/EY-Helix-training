@@ -1,5 +1,5 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser | async">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/">Home</a>
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
@@ -9,6 +9,7 @@
 <!-- main content container -->
 <div class="jumbotron">
     <div class="container">
+        <app-alert></app-alert>
         <router-outlet></router-outlet>
     </div>
 </div>

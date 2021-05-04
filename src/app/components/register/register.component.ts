@@ -1,16 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
     registerForm: FormGroup;
     submitted: boolean;
     loading: boolean;
-    constructor(private fb: FormBuilder) {}
+
+    private subscription = new Subscription();
+    constructor(private fb: FormBuilder, private user: UserService, private router: Router) {}
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
 
     ngOnInit() {
         this.registerForm = this.fb.group({
@@ -33,5 +42,10 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
+        this.subscription.add(
+            this.user.register(this.registerForm.value).subscribe((user) => {
+                this.router.navigate(['/login'], { queryParams: { registered: true } });
+            })
+        );
     }
 }
