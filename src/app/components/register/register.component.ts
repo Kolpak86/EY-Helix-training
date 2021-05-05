@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AdharValidators } from 'src/app/utility/adhar-validator';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -26,6 +27,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
             lastName: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
+            adhar: ['', [Validators.required, AdharValidators.twelveDigits]],
         });
     }
 
@@ -35,6 +37,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     onSubmit() {
         this.submitted = true;
+        console.log(this.f.adhar);
 
         if (this.registerForm.invalid) {
             return;

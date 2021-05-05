@@ -1,0 +1,14 @@
+import { AbstractControl, ValidatorFn } from '@angular/forms';
+
+export class AdharValidators {
+    static twelveDigits(control: AbstractControl): any | null {
+        return AdharValidators.digits(12)(control);
+    }
+
+    static digits(count: number): ValidatorFn {
+        return (control: AbstractControl): { [key: string]: any } | null => {
+            const countValue = control.value.toString().length;
+            return countValue === count ? null : { wrongCount: countValue, count };
+        };
+    }
+}

@@ -54,6 +54,22 @@
         </div>
     </div>
     <div class="form-group">
+        <label for="adhar">Adhar</label>
+        <input
+            type="number"
+            formControlName="adhar"
+            id="adhar"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.adhar.errors }"
+        />
+        <div *ngIf="submitted && f.adhar.errors" class="invalid-feedback">
+            <div *ngIf="f.adhar.errors.required">Adhar is required</div>
+            <div *ngIf="f.adhar.errors.wrongCount as wrongCount">
+                Sorry, you type {{ wrongCount }} digits, need to type {{ f.adhar.errors.count }} instead
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
         <button class="btn btn-primary">Register</button>
         <a routerLink="/login" class="btn btn-link">Cancel</a>
     </div>
