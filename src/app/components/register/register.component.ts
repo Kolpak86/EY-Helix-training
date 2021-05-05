@@ -12,7 +12,6 @@ import { UserService } from '../../services/user.service';
 export class RegisterComponent implements OnInit, OnDestroy {
     registerForm: FormGroup;
     submitted: boolean;
-    loading: boolean;
 
     private subscription = new Subscription();
     constructor(private fb: FormBuilder, private user: UserService, private router: Router) {}
@@ -41,9 +40,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this.loading = true;
         this.subscription.add(
-            this.user.register(this.registerForm.value).subscribe((user) => {
+            this.user.register(this.registerForm.value).subscribe(() => {
                 this.router.navigate(['/login'], { queryParams: { registered: true } });
             })
         );
