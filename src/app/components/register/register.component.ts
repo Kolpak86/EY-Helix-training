@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AdharValidators } from 'src/app/utility/adhar-validator';
+import { AdharValidators, UniqueAdharValidator } from 'src/app/utility';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     submitted: boolean;
 
     private subscription = new Subscription();
-    constructor(private fb: FormBuilder, private user: UserService, private router: Router) {}
+    constructor(private fb: FormBuilder, private user: UserService, private router: Router, private adharValidator: UniqueAdharValidator) {}
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
@@ -27,7 +27,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
             lastName: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            adhar: ['', [Validators.required, AdharValidators.twelveDigits]],
+            adhar: [
+                '',
+                {
+                    validators: [Validators.required, AdharValidators.twelveDigits],
+                    asyncValidators: [this.adharValidator.validate.bind(this.adharValidator)],
+                    updateOn: 'blur',
+                },
+            ],
         });
     }
 

@@ -5,14 +5,8 @@
       "lastName": "Kolpak",
       "username": "pokemon",
       "password": "123456",
+      "adhar": 127434343434,
       "id": 1
-    },
-    {
-      "firstName": "Petya",
-      "lastName": "Petrov",
-      "username": "petunya",
-      "password": "123456",
-      "id": 2
     }
   ]
 }
