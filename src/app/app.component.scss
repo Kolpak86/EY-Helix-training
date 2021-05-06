@@ -1,4 +1,25 @@
+:host {
+    --primary-color: #343a40;
+    --secondary-color: #e9ecef;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    & > * {
+        flex-basis: 100%;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 840px;
+}
+
 .navbar {
+    flex-shrink: 2;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -7,7 +28,7 @@
     padding: 0.5rem 1rem;
 
     &.bg-dark {
-        background-color: #343a40 !important;
+        background-color: var(--primary-color) !important;
     }
     &.navbar-expand {
         flex-flow: row nowrap;
@@ -35,10 +56,19 @@
 }
 .jumbotron {
     padding: 4rem 2rem;
-    background-color: #e9ecef;
+    background-color: var(--secondary-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     .container {
-        width: 100%;
-        margin: 0 auto;
-        max-width: 840px;
+        justify-content: space-between;
+        width: 800px;
+        .total {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            text-align: center;
+        }
     }
 }

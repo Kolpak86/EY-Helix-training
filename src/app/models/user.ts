@@ -3,5 +3,6 @@ export interface User {
     lastName: string;
     username: string;
     password: string;
+    amount: number;
     adhar: number;
 }

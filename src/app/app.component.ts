@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { User } from './models';
 import { AuthentificationService } from './services/authentification.service';
+import { UserService } from './services/user.service';
 
 @Component({
     selector: 'app-root',
@@ -11,11 +13,13 @@ import { AuthentificationService } from './services/authentification.service';
 })
 export class AppComponent implements OnInit {
     currentUser: Observable<boolean>;
+    users$: Observable<User[]>;
 
-    constructor(private authentication: AuthentificationService, private roter: Router) {}
+    constructor(private authentication: AuthentificationService, private roter: Router, private user: UserService) {}
 
     ngOnInit() {
         this.currentUser = this.authentication.currentUser.pipe(map((us) => !!us));
+        this.users$ = this.user.getUsers();
     }
 
     logout() {

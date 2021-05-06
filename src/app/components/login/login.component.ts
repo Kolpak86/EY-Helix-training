@@ -13,7 +13,6 @@ import { AuthentificationService } from '../../services/authentification.service
 export class LoginComponent implements OnInit, OnDestroy {
     loginForm: FormGroup;
     submitted: boolean;
-    loading: boolean;
     private returnUrl: string;
     private subscription = new Subscription();
 
@@ -49,7 +48,6 @@ export class LoginComponent implements OnInit, OnDestroy {
             return;
         }
 
-        // this.loading = true;
         this.subscription.add(
             this.authentication.login(this.f.username.value, this.f.password.value).subscribe((data) => {
                 this.router.navigate([this.returnUrl]);
