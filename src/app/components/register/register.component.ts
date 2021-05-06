@@ -45,14 +45,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     onSubmit() {
         this.submitted = true;
-        console.log(this.f.adhar);
 
         if (this.registerForm.invalid) {
             return;
         }
 
         this.subscription.add(
-            this.user.register(this.registerForm.value).subscribe(() => {
+            this.user.register({ ...this.registerForm.value, createdAt: new Date() }).subscribe(() => {
                 this.router.navigate(['/login'], { queryParams: { registered: true } });
             })
         );

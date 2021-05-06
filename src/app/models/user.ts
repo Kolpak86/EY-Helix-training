@@ -5,4 +5,5 @@ export interface User {
     password: string;
     amount: number;
     adhar: number;
+    createdAt: Date;
 }
