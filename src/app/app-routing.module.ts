@@ -9,7 +9,7 @@ const routes: Routes = [
     { path: 'register', loadChildren: () => import('./components/register/register.module').then((m) => m.RegisterModule) },
     { path: 'users', loadChildren: () => import('./components/users/users.module').then((m) => m.UsersModule), canActivate: [AuthGuard] },
 
-    { path: '**', redirectTo: '' },
+    { path: '**', redirectTo: 'users' },
 ];
 
 @NgModule({

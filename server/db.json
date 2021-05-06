@@ -43,6 +43,39 @@
       "adhar": 111111111114,
       "createdAt": "2021-05-06T13:54:59.308Z",
       "id": 4
+    },
+    {
+      "firstName": "Ivan",
+      "lastName": "Hicenko",
+      "username": "yellow",
+      "password": "123456",
+      "amount": 1212,
+      "country": "Ukrain",
+      "adhar": 111111111115,
+      "createdAt": "2021-05-06T14:05:06.607Z",
+      "id": 5
+    },
+    {
+      "firstName": "Ahmed",
+      "lastName": "Jabashi",
+      "username": "pak",
+      "password": "123456",
+      "amount": 120,
+      "country": "Pakistan",
+      "adhar": 111111111116,
+      "createdAt": "2021-05-06T14:18:16.074Z",
+      "id": 6
+    },
+    {
+      "firstName": "Jim",
+      "lastName": "Kerry",
+      "username": "slo",
+      "password": "123456",
+      "amount": 123,
+      "country": "Slovakia",
+      "adhar": 111111111117,
+      "createdAt": "2021-05-06T14:19:35.686Z",
+      "id": 7
     }
   ]
 }
