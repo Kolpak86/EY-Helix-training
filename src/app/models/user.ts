@@ -6,4 +6,5 @@ export interface User {
     amount: number;
     adhar: number;
     createdAt: Date;
+    country: string;
 }

@@ -6,9 +6,43 @@
       "username": "pokemon",
       "password": "123456",
       "amount": 35,
+      "country": "Belarus",
       "adhar": 111111111111,
-      "createdAt": "2021-05-06T11:17:58.746Z",
+      "createdAt": "2021-05-06T13:03:52.619Z",
       "id": 1
+    },
+    {
+      "firstName": "Sergey",
+      "lastName": "Ivanov",
+      "username": "sergio",
+      "password": "123456",
+      "amount": 75,
+      "country": "Belarus",
+      "adhar": 111111111112,
+      "createdAt": "2021-05-06T13:06:01.846Z",
+      "id": 2
+    },
+    {
+      "firstName": "Jhon",
+      "lastName": "Li",
+      "username": "jhon",
+      "password": "123456",
+      "amount": 114,
+      "country": "United States",
+      "adhar": 111111111113,
+      "createdAt": "2021-05-06T13:07:30.781Z",
+      "id": 3
+    },
+    {
+      "firstName": "Arnold",
+      "lastName": "Swarcneger",
+      "username": "termiinator",
+      "password": "123456",
+      "amount": 1234,
+      "country": "Austria",
+      "adhar": 111111111114,
+      "createdAt": "2021-05-06T13:54:59.308Z",
+      "id": 4
     }
   ]
 }

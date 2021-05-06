@@ -9,10 +9,25 @@ import { UserService } from 'src/app/services/user.service';
     styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-    columnDefs = [{ field: 'firstName' }, { field: 'lastName' }, { field: 'username', filter: true }, { field: 'amount', sortable: true }];
-    users$: Observable<User[]>;
+    columnDefs = [
+        { field: 'country', rowGroup: true, hide: true },
+        { field: 'firstName' },
+        { field: 'lastName' },
+        { field: 'username' },
+        { field: 'amount' },
+    ];
 
-    constructor(private user: UserService) {}
+    users$: Observable<User[]>;
+    defaultColDef: { flex: number; minWidth: number; sortable: boolean; filter: boolean };
+
+    constructor(private user: UserService) {
+        this.defaultColDef = {
+            flex: 1,
+            minWidth: 100,
+            sortable: true,
+            filter: true,
+        };
+    }
 
     ngOnInit() {
         this.users$ = this.user.getUsers();

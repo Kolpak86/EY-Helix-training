@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
             amount: ['', [Validators.required, Validators.min(20)]],
+            country: ['', Validators.required],
             adhar: [
                 '',
                 {

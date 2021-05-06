@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { SharedModule } from './shared/shared/shared.module';
+import 'ag-grid-enterprise';
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, AlertComponent],
