@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/models';
+import { Component } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import 'ag-grid-enterprise';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-users',
     templateUrl: './users.component.html',
     styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
     columnDefs = [
         { field: 'country', rowGroup: true, hide: true },
         { field: 'firstName' },
@@ -18,8 +17,10 @@ export class UsersComponent implements OnInit {
         { field: 'amount', filter: 'agNumberColumnFilter', valueFormatter: amountValueFormatter },
     ];
 
-    users$: Observable<User[]>;
     defaultColDef: { flex: number; minWidth: number; sortable: boolean; filter: boolean };
+    private subscription = new Subscription();
+    private gridApi: any;
+    private gridColumnApi: any;
 
     constructor(private user: UserService) {
         this.defaultColDef = {
@@ -30,8 +31,14 @@ export class UsersComponent implements OnInit {
         };
     }
 
-    ngOnInit() {
-        this.users$ = this.user.getUsers();
+    onGridReady(params) {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+        this.subscription.add(
+            this.user.getUsers().subscribe((users) => {
+                params.api.setRowData(users);
+            })
+        );
     }
 }
 

@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AlertService } from 'src/app/services/alert.service';
 import { AuthentificationService } from '../../services/authentification.service';
 
 @Component({
@@ -20,8 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         private fb: FormBuilder,
         private router: Router,
         private authentication: AuthentificationService,
-        private route: ActivatedRoute,
-        private alert: AlertService
+        private route: ActivatedRoute
     ) {}
 
     ngOnDestroy(): void {

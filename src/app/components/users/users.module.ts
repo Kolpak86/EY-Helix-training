@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { AgGridModule } from 'ag-grid-angular';
+import 'ag-grid-enterprise';
 
 @NgModule({
     declarations: [UsersComponent],
