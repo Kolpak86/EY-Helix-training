@@ -7,7 +7,7 @@ import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-register',
-    template: '<app-register-form (send)="onSubmit($event)"></app-register-form>',
+    template: '<lib-register-form (send)="onSubmit($event)"></lib-register-form>',
     styles: [':host{width: 100%;}'],
 })
 export class RegisterComponent implements OnDestroy {
