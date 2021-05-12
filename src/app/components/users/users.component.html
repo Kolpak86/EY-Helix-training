@@ -6,3 +6,14 @@
     [defaultColDef]="defaultColDef"
 >
 </ag-grid-angular>
+
+<div class="form-group">
+    <a routerLink="/users-graph" class="btn btn-link">Graph</a>
+</div>
+
+<ng-container *cdkPortal>
+    <div class="container">
+        <p class="total">Total:</p>
+        <p class="total">${{ users | total }}</p>
+    </div>
+</ng-container>

@@ -7,12 +7,12 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
-import { SharedModule } from './shared/shared/shared.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, AlertComponent, FooterComponent],
-    imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, SharedModule],
+    imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, PortalModule],
     providers: [],
     bootstrap: [AppComponent],
 })

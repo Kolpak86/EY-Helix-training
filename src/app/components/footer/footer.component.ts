@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/models';
-import { UserService } from 'src/app/services/user.service';
+import { Portal } from 'src/app/models';
+import { PortalBridgeService } from 'src/app/services/portal-bridge.service';
 
 @Component({
     selector: 'app-footer',
@@ -9,11 +9,11 @@ import { UserService } from 'src/app/services/user.service';
     styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-    users$: Observable<User[]>;
+    portal$: Observable<Portal>;
 
-    constructor(private user: UserService) {}
+    constructor(private portalBridge: PortalBridgeService) {}
 
     ngOnInit() {
-        this.users$ = this.user.getUsers();
+        this.portal$ = this.portalBridge.portal$;
     }
 }
