@@ -15,8 +15,5 @@
 </div>
 
 <footer *ngIf="currentUser | async">
-    <div class="container">
-        <p class="total">Total:</p>
-        <p class="total">${{ users$ | async | total }}</p>
-    </div>
+    <app-footer></app-footer>
 </footer>

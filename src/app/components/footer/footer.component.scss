@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: 0 auto;
+    .total {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        text-align: center;
+    }
+}
