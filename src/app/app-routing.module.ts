@@ -8,6 +8,11 @@ const routes: Routes = [
 
     { path: 'register', loadChildren: () => import('./components/register/register.module').then((m) => m.RegisterModule) },
     { path: 'users', loadChildren: () => import('./components/users/users.module').then((m) => m.UsersModule), canActivate: [AuthGuard] },
+    {
+        path: 'users-graph',
+        loadChildren: () => import('./components/users-graph/users-graph.module').then((m) => m.UsersGraphModule),
+        canActivate: [AuthGuard],
+    },
 
     { path: '**', redirectTo: 'users' },
 ];
