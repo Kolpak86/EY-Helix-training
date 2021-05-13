@@ -1,8 +1,10 @@
+import { PortalModule } from '@angular/cdk/portal';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from './shared/shared/shared.module';
 
 @Component({ selector: 'app-alert', template: '' })
@@ -13,8 +15,8 @@ describe('AppComponent', () => {
         const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
         TestBed.configureTestingModule({
-            imports: [RouterTestingModule, SharedModule, HttpClientModule],
-            declarations: [AppComponent, AlertStubComponent],
+            imports: [RouterTestingModule, SharedModule, HttpClientModule, PortalModule],
+            declarations: [AppComponent, AlertStubComponent, FooterComponent],
         }).compileComponents();
     }));
 
