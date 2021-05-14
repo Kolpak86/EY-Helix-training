@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { User } from 'src/app/models';
 import { CdkPortal } from '@angular/cdk/portal';
 import { PortalBridgeService } from 'src/app/services/portal-bridge.service';
+import { reducer } from 'src/app/utility';
+import { ColumnApi, GridApi, GridReadyEvent } from 'ag-grid-community';
 
 @Component({
     selector: 'app-users',
@@ -24,9 +26,11 @@ export class UsersComponent implements OnInit, OnDestroy {
     ];
 
     defaultColDef: { flex: number; minWidth: number; sortable: boolean; filter: boolean };
+    total: number;
+
     private subscription = new Subscription();
-    private gridApi: any;
-    private gridColumnApi: any;
+    private gridApi: GridApi;
+    private gridColumnApi: ColumnApi;
 
     constructor(private user: UserService, private portalBridge: PortalBridgeService) {
         this.defaultColDef = {
@@ -45,13 +49,21 @@ export class UsersComponent implements OnInit, OnDestroy {
         this.portalContent.detach();
     }
 
-    onGridReady(params) {
+    onGridReady(params: GridReadyEvent) {
+        const totalAll = [];
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
         this.subscription.add(
             this.user.getUsers().subscribe((users) => {
                 this.users = users;
                 params.api.setRowData(users);
+                this.gridApi.forEachNode((rowNode, index) => {
+                    if (!rowNode.data) {
+                        return;
+                    }
+                    totalAll.push(rowNode.data.amount);
+                });
+                this.total = totalAll.reduce(reducer);
             })
         );
     }
