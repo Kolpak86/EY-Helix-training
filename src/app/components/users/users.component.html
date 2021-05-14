@@ -1,6 +1,8 @@
 <ag-grid-angular
     style="width: 800px; height: 300px"
     class="ag-theme-alpine"
+    rowAnimation
+    pagination
     (gridReady)="onGridReady($event)"
     [columnDefs]="columnDefs"
     [defaultColDef]="defaultColDef"
