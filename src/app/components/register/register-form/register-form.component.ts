@@ -41,6 +41,7 @@ export class RegisterFormComponent implements OnInit, OnDestroy {
 
     get f() {
         return this.registerForm.controls;
+
     }
 
     onSubmit() {
