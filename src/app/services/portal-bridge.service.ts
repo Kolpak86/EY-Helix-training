@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Portal } from '../models';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PortalBridgeService {
-    private activePortal = new Subject<Portal>();
+    private activePortal = new BehaviorSubject<Portal>(null);
 
     readonly portal$ = this.activePortal.asObservable();
 

@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run server & ng serve",
     "server": "json-server --watch server/db.json",
     "build": "ng build",
-    "test": "ng test",
+    "test": "npm run server & ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
