@@ -6,9 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm start` for a dev server adn json server. Navigate to `http://localhost:4200/`. json server on `http://localhost:3000`. The app will automatically reload if you change any of the source files.
 
-## Desription
+## Description
 
-This project uses ng-grid table and higcharts lib.
+
+This project uses ng-grid table and highcharts lib.
 
 ## Build
 
