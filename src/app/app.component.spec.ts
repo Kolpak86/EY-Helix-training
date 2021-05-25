@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { RouterLinkDirectiveStub } from 'src/testing';
 import { AppComponent } from './app.component';
-import { AuthentificationService } from './services/authentification.service';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({ selector: 'app-users', template: '' })
 export class UsersComponent {}
@@ -22,7 +22,7 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule.withRoutes([{ path: 'users', component: UsersComponent }])],
             declarations: [AppComponent, RouterLinkDirectiveStub],
-            providers: [{ provide: AuthentificationService, useValue: authService }],
+            providers: [{ provide: AuthenticationService, useValue: authService }],
         }).compileComponents();
     }));
 

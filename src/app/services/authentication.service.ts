@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { mapTo, tap } from 'rxjs/operators';
@@ -9,7 +8,7 @@ import { User } from '../models';
 @Injectable({
     providedIn: 'root',
 })
-export class AuthentificationService {
+export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
@@ -30,8 +29,8 @@ export class AuthentificationService {
                     this.alert.error(`${username} does not exist. Please register!`);
                     throw new Error('Register');
                 }
-                const autorized = user.password === password;
-                if (!autorized) {
+                const authorized = user.password === password;
+                if (!authorized) {
                     this.alert.error('Wrong password. Please try again');
                     throw new Error('Wrong password');
                 }

@@ -1,14 +1,13 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AuthenticationService } from './authentication.service';
 
-import { AuthentificationService } from './authentification.service';
-
-describe('AuthentificationService', () => {
+describe('AuthenticationService', () => {
     beforeEach(() => TestBed.configureTestingModule({ imports: [HttpClientModule, RouterTestingModule.withRoutes([])] }));
 
     it('should be created', () => {
-        const service: AuthentificationService = TestBed.get(AuthentificationService);
+        const service: AuthenticationService = TestBed.get(AuthenticationService);
         expect(service).toBeTruthy();
     });
 });

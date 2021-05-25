@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthentificationService } from '../../services/authentification.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
     selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     constructor(
         private fb: FormBuilder,
         private router: Router,
-        private authentication: AuthentificationService,
+        private authentication: AuthenticationService,
         private route: ActivatedRoute
     ) {}
 
