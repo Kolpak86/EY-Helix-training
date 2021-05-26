@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../../services/authentication.service';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @Component({
     selector: 'app-login',
@@ -10,8 +11,8 @@ import { AuthenticationService } from '../../services/authentication.service';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
+    @ViewChild(LoginFormComponent, { static: false }) private loginFormComp: LoginFormComponent;
     loginForm: FormGroup;
-    submitted: boolean;
     private returnUrl: string;
     private subscription = new Subscription();
 
@@ -28,8 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.loginForm = this.fb.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required],
+            login: [],
         });
 
         this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/users';
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     onSubmit() {
-        this.submitted = true;
+        this.loginFormComp.form.markAllAsTouched();
 
         if (this.loginForm.invalid) {
             return;
