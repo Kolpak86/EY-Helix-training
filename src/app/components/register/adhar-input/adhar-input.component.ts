@@ -34,14 +34,7 @@ export class AdharInputComponent implements ControlValueAccessor {
     constructor(private fb: FormBuilder, private adharValidator: UniqueAdharValidator) {
         // create the inner form
         this.form = this.fb.group({
-            adhar: [
-                '',
-                {
-                    validators: [Validators.required, AdharValidators.twelveDigits],
-                    // asyncValidators: [this.adharValidator.validate.bind(this.adharValidator)],
-                    // updateOn: 'blur',
-                },
-            ],
+            adhar: ['', [Validators.required, AdharValidators.twelveDigits]],
         });
 
         this.subscriptions.add(

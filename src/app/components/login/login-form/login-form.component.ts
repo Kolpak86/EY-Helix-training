@@ -9,7 +9,6 @@ import {
     Validator,
     Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginFormValues } from 'src/app/models';
 
@@ -44,7 +43,7 @@ export class LoginFormComponent implements OnDestroy, ControlValueAccessor, Vali
         return this.form.controls.password;
     }
 
-    constructor(private formBuilder: FormBuilder, private router: Router) {
+    constructor(private formBuilder: FormBuilder) {
         // create the inner form
         this.form = this.formBuilder.group({
             username: ['', Validators.required],

@@ -11,7 +11,6 @@ import {
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { RegisterFormValues } from 'src/app/models';
-import { AdharValidators, UniqueAdharValidator } from 'src/app/utility';
 
 @Component({
     selector: 'app-register-form',
@@ -55,21 +54,13 @@ export class RegisterFormComponent implements OnDestroy, Validator, ControlValue
         return this.form.controls.adhar;
     }
 
-    constructor(private formBuilder: FormBuilder, private adharValidator: UniqueAdharValidator) {
+    constructor(private formBuilder: FormBuilder) {
         // create the inner form
         this.form = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             amount: ['', [Validators.required, Validators.min(20)]],
             country: ['', Validators.required],
-            // adhar: [
-            //     '',
-            //     {
-            //         validators: [Validators.required, AdharValidators.twelveDigits],
-            //         asyncValidators: [this.adharValidator.validate.bind(this.adharValidator)],
-            //         updateOn: 'blur',
-            //     },
-            // ],
         });
 
         this.subscriptions.add(
