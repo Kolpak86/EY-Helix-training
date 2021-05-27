@@ -16,17 +16,18 @@ body {
     padding: 0;
 }
 
+.invalid-feedback {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 13px;
+    color: #dc3545;
+}
+
 .form-group {
     margin-bottom: 1rem;
     label {
         display: inline-block;
         margin-bottom: 0.5rem;
-    }
-    .invalid-feedback {
-        width: 100%;
-        margin-top: 0.25rem;
-        font-size: 80%;
-        color: #dc3545;
     }
 
     .form-control {

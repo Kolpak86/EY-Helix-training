@@ -7,7 +7,11 @@ export class AdharValidators {
 
     static digits(count: number): ValidatorFn {
         return (control: AbstractControl): { [key: string]: any } | null => {
-            const countValue = control.value.toString().length;
+            const ctrlVal = control.value;
+            if (!ctrlVal) {
+                return;
+            }
+            const countValue = ctrlVal.toString().length;
             return countValue === count ? null : { wrongCount: countValue, count };
         };
     }

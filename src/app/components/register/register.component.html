@@ -1,0 +1,14 @@
+<h2>Register</h2>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <app-login-form formControlName="login"></app-login-form>
+    <app-register-form formControlName="register"></app-register-form>
+    <div class="adhar-wrapper">
+        <app-adhar-input formControlName="adhar"></app-adhar-input>
+        <div class="adhar-error" *ngIf="adharControl.pending">Validating...</div>
+        <div class="adhar-error" *ngIf="adharControl.errors?.uniqueAdhar">Adhar is already taken</div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Login</button>
+        <a routerLink="/register" class="btn btn-link">Register</a>
+    </div>
+</form>

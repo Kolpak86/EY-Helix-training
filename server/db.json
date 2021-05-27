@@ -98,6 +98,16 @@
       "adhar": 111111111129,
       "createdAt": "2021-05-13T09:18:27.161Z",
       "id": 9
+    },
+    {
+      "username": "kon",
+      "password": "123456",
+      "firstName": "Andrew",
+      "lastName": "Lock",
+      "amount": 323,
+      "country": "Belarus",
+      "adhar": 121212121211,
+      "id": 10
     }
   ]
 }

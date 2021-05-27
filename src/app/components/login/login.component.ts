@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LoginFormValues } from 'src/app/models';
 import { AuthenticationService } from '../../services/authentication.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 
@@ -35,8 +36,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/users';
     }
 
-    get f() {
-        return this.loginForm.controls;
+    get loginFormValue(): LoginFormValues {
+        return this.loginForm.value.login;
     }
 
     onSubmit() {
@@ -47,7 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
 
         this.subscription.add(
-            this.authentication.login(this.f.username.value, this.f.password.value).subscribe((data) => {
+            this.authentication.login(this.loginFormValue.username, this.loginFormValue.password).subscribe(() => {
                 this.router.navigate([this.returnUrl]);
             })
         );

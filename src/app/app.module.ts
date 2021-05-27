@@ -9,11 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PortalModule } from '@angular/cdk/portal';
-import { LoginFormComponent } from './components/login/login-form/login-form.component';
+import { LoginFormModule } from './components/login/login-form/login-form.module';
 
 @NgModule({
-    declarations: [AppComponent, LoginComponent, AlertComponent, FooterComponent, LoginFormComponent],
-    imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, PortalModule],
+    declarations: [AppComponent, LoginComponent, AlertComponent, FooterComponent],
+    imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, PortalModule, LoginFormModule],
     providers: [],
     bootstrap: [AppComponent],
 })

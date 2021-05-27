@@ -1,55 +1,113 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnDestroy } from '@angular/core';
+import {
+    FormGroup,
+    FormBuilder,
+    Validators,
+    NG_VALUE_ACCESSOR,
+    NG_VALIDATORS,
+    Validator,
+    ControlValueAccessor,
+    FormControl,
+} from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { User } from 'src/app/models';
-import { UniqueAdharValidator, AdharValidators } from 'src/app/utility';
+import { RegisterFormValues } from 'src/app/models';
+import { AdharValidators, UniqueAdharValidator } from 'src/app/utility';
 
 @Component({
     selector: 'app-register-form',
     templateUrl: './register-form.component.html',
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, useExisting: RegisterFormComponent, multi: true },
+        { provide: NG_VALIDATORS, useExisting: RegisterFormComponent, multi: true },
+    ],
 })
-export class RegisterFormComponent implements OnInit, OnDestroy {
-    registerForm: FormGroup;
-    submitted: boolean;
-    @Output() send = new EventEmitter<User>();
+export class RegisterFormComponent implements OnDestroy, Validator, ControlValueAccessor {
+    form: FormGroup;
+    subscriptions = new Subscription();
 
-    private subscription = new Subscription();
-    constructor(private fb: FormBuilder, private adharValidator: UniqueAdharValidator) {}
-
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
+    get value(): RegisterFormValues {
+        return this.form.value;
     }
 
-    ngOnInit() {
-        this.registerForm = this.fb.group({
+    set value(value: RegisterFormValues) {
+        this.form.setValue(value);
+        this.onChange(value);
+        this.onTouched();
+    }
+
+    get firstNameControl() {
+        return this.form.controls.firstName;
+    }
+
+    get lastNameControl() {
+        return this.form.controls.lastName;
+    }
+
+    get amountControl() {
+        return this.form.controls.amount;
+    }
+
+    get countryControl() {
+        return this.form.controls.country;
+    }
+
+    get adharControl() {
+        return this.form.controls.adhar;
+    }
+
+    constructor(private formBuilder: FormBuilder, private adharValidator: UniqueAdharValidator) {
+        // create the inner form
+        this.form = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]],
             amount: ['', [Validators.required, Validators.min(20)]],
             country: ['', Validators.required],
-            adhar: [
-                '',
-                {
-                    validators: [Validators.required, AdharValidators.twelveDigits],
-                    asyncValidators: [this.adharValidator.validate.bind(this.adharValidator)],
-                    updateOn: 'blur',
-                },
-            ],
+            // adhar: [
+            //     '',
+            //     {
+            //         validators: [Validators.required, AdharValidators.twelveDigits],
+            //         asyncValidators: [this.adharValidator.validate.bind(this.adharValidator)],
+            //         updateOn: 'blur',
+            //     },
+            // ],
         });
+
+        this.subscriptions.add(
+            // any time the inner form changes update the parent of any change
+            this.form.valueChanges.subscribe((value) => {
+                this.onChange(value);
+                this.onTouched();
+            })
+        );
     }
 
-    get f() {
-        return this.registerForm.controls;
-
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
     }
 
-    onSubmit() {
-        this.submitted = true;
+    onChange: any = () => {};
+    onTouched: any = () => {};
 
-        if (this.registerForm.invalid) {
-            return;
+    registerOnChange(fn: any): void {
+        this.onChange = fn;
+    }
+
+    writeValue(value: RegisterFormValues) {
+        if (value) {
+            this.value = value;
         }
-        this.send.emit({ ...this.registerForm.value, createdAt: new Date() });
+
+        if (value === null) {
+            this.form.reset();
+        }
+    }
+
+    registerOnTouched(fn: any) {
+        this.onTouched = fn;
+    }
+
+    // communicate the inner form validation to the parent form
+    validate(_: FormControl) {
+        return this.form.valid ? null : { register: { valid: false } };
     }
 }
