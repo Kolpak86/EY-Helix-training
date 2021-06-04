@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Portal } from 'src/app/models';
-import { PortalBridgeService } from 'src/app/services/portal-bridge.service';
+import { Portal } from '../../models';
+import { PortalBridgeService } from '../../services/portal-bridge.service';
 
 @Component({
     selector: 'app-footer',

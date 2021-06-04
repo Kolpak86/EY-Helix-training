@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TotalPipe } from 'src/app/helpers';
-import { WrapperComponent } from 'src/app/components/wrapper/wrapper.component';
+import { WrapperComponent } from '../../components/wrapper/wrapper.component';
+import { TotalPipe } from '../../helpers';
 
 @NgModule({
     declarations: [TotalPipe, WrapperComponent],

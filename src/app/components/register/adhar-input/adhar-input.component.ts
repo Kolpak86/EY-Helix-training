@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Adhar } from 'src/app/models';
-import { AdharValidators, UniqueAdharValidator } from 'src/app/utility';
+import { Adhar } from '../../../models';
+import { UniqueAdharValidator, AdharValidators } from '../../../utility';
 
 @Component({
     selector: 'app-adhar-input',

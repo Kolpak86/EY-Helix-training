@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { switchMap } from 'rxjs/operators';
 import { AlertService } from './alert.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root',

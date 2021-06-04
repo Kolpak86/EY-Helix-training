@@ -1,6 +1,6 @@
 import { Component, ContentChild, OnInit } from '@angular/core';
-import { Widget } from 'src/app/widgets/widget';
-import { WIDGET } from 'src/app/widgets/widget.token';
+import { Widget } from '../../widgets/widget';
+import { WIDGET } from '../../widgets/widget.token';
 
 @Component({
     selector: 'app-wrapper',

@@ -10,7 +10,7 @@ import {
     FormControl,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { RegisterFormValues } from 'src/app/models';
+import { RegisterFormValues } from '../../../models';
 
 @Component({
     selector: 'app-register-form',

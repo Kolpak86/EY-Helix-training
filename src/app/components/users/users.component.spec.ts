@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AgGridModule } from 'ag-grid-angular';
-import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { SharedModule } from '../../shared/shared/shared.module';
 
 import { UsersComponent } from './users.component';
 

@@ -10,7 +10,7 @@ import {
     Validators,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { LoginFormValues } from 'src/app/models';
+import { LoginFormValues } from '../../../models';
 
 @Component({
     selector: 'app-login-form',

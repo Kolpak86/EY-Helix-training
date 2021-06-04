@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { Subscription } from 'rxjs';
-import { sleep } from 'src/app/helpers';
-import { UserGraph } from 'src/app/models';
-import { UserService } from 'src/app/services/user.service';
-import { getDuplicatesFromArray, convertObjectToArray } from 'src/app/utility';
-import { Widget } from 'src/app/widgets/widget';
-import { WIDGET } from 'src/app/widgets/widget.token';
+import { sleep } from '../../../helpers';
+import { UserGraph } from '../../../models';
+import { UserService } from '../../../services/user.service';
+import { getDuplicatesFromArray, convertObjectToArray } from '../../../utility';
+import { Widget } from '../../../widgets/widget';
+import { WIDGET } from '../../../widgets/widget.token';
 
 @Component({
     selector: 'app-month-graph',

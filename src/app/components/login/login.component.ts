@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { LoginFormValues } from 'src/app/models';
+import { LoginFormValues } from '../../models';
 import { AuthenticationService } from '../../services/authentication.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 

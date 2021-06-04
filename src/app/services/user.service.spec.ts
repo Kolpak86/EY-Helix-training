@@ -1,12 +1,12 @@
-import { asyncData } from 'src/testing';
 import { User } from '../models';
 
 import { UserService } from './user.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { environment } from 'src/environments/environment';
 import { RouterTestingModule } from '@angular/router/testing';
+import { environment } from '../../environments/environment';
+import { asyncData } from '../../testing';
 
 describe('UserService', () => {
     let httpClientSpy: { get: jasmine.Spy };

@@ -2,13 +2,13 @@ import { CdkPortal } from '@angular/cdk/portal';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { GridApi, ColumnApi, GridReadyEvent } from 'ag-grid-community';
 import { Subscription } from 'rxjs';
-import { sleep } from 'src/app/helpers';
-import { User } from 'src/app/models';
-import { PortalBridgeService } from 'src/app/services/portal-bridge.service';
-import { UserService } from 'src/app/services/user.service';
-import { amountValueFormatter, reducer } from 'src/app/utility';
-import { Widget } from 'src/app/widgets/widget';
-import { WIDGET } from 'src/app/widgets/widget.token';
+import { sleep } from '../../../helpers';
+import { User } from '../../../models';
+import { PortalBridgeService } from '../../../services/portal-bridge.service';
+import { UserService } from '../../../services/user.service';
+import { amountValueFormatter, reducer } from '../../../utility';
+import { Widget } from '../../../widgets/widget';
+import { WIDGET } from '../../../widgets/widget.token';
 
 @Component({
     selector: 'app-user-table',
