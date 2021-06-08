@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterFormComponent } from 'kolpak0860-register-form';
 import { Subscription } from 'rxjs';
 import { LoginFormValues, RegisterFormValues, Adhar } from '../../models';
 import { UserService } from '../../services/user.service';
 import { UniqueAdharValidator } from '../../utility';
 import { LoginFormComponent } from '../login/login-form/login-form.component';
 import { AdharInputComponent } from './adhar-input/adhar-input.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
 
 @Component({
     selector: 'app-register',
