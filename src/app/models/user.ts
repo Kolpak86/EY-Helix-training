@@ -11,7 +11,7 @@ export interface RegisterFormValues {
     lastName: string;
     amount: number;
     adhar: number;
-    createdAt: string;
+    createdAt: Date | string;
     country: string;
 }
 

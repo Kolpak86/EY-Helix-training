@@ -100,13 +100,14 @@
       "id": 9
     },
     {
-      "username": "kon",
-      "password": "123456",
+      "username": "pokemon1",
+      "password": "23323232323",
       "firstName": "Andrew",
-      "lastName": "Lock",
-      "amount": 323,
+      "lastName": "Andrew 3",
+      "amount": 23432,
       "country": "Belarus",
-      "adhar": 121212121211,
+      "adhar": 124323312111,
+      "createdAt": "2021-06-11T10:19:22.935Z",
       "id": 10
     }
   ]

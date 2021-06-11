@@ -10,6 +10,11 @@ import { AuthenticationService } from './services/authentication.service';
 @Component({ selector: 'app-users', template: '' })
 export class UsersComponent {}
 
+@Component({ selector: 'app-alert', template: '' })
+export class AlertComponent {}
+@Component({ selector: 'app-footer', template: '' })
+export class FooterComponent {}
+
 describe('AppComponent', () => {
     let app: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
@@ -21,7 +26,7 @@ describe('AppComponent', () => {
 
         TestBed.configureTestingModule({
             imports: [RouterTestingModule.withRoutes([{ path: 'users', component: UsersComponent }])],
-            declarations: [AppComponent, RouterLinkDirectiveStub],
+            declarations: [AppComponent, RouterLinkDirectiveStub, UsersComponent, AlertComponent, FooterComponent],
             providers: [{ provide: AuthenticationService, useValue: authService }],
         }).compileComponents();
     }));

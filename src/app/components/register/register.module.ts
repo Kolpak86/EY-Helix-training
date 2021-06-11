@@ -7,10 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { RegisterFormModule } from 'kolpak0860-register-form';
 import { LoginFormModule } from '../login/login-form/login-form.module';
-import { AdharInputComponent } from './adhar-input/adhar-input.component';
+import { AdharInputModule } from './adhar-input/adhar-input.module';
 
 @NgModule({
-    declarations: [RegisterComponent, RegisterFormComponent, AdharInputComponent],
-    imports: [CommonModule, RegisterRoutingModule, ReactiveFormsModule, RegisterFormModule, LoginFormModule],
+    declarations: [RegisterComponent, RegisterFormComponent],
+    imports: [CommonModule, RegisterRoutingModule, ReactiveFormsModule, RegisterFormModule, LoginFormModule, AdharInputModule],
 })
 export class RegisterModule {}

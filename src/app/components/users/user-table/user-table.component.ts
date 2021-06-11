@@ -50,7 +50,7 @@ export class UserTableComponent implements OnInit, OnDestroy, Widget {
     }
 
     ngOnDestroy() {
-        if (this.portalContent) {
+        if (this.portalContent.context) {
             this.portalContent.detach();
         }
     }

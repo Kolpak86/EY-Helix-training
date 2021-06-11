@@ -78,7 +78,7 @@ export class RegisterComponent implements OnDestroy, OnInit {
         }
 
         this.subscription.add(
-            this.user.register({ ...this.loginValue, ...this.registerValue, ...this.adharValue }).subscribe(() => {
+            this.user.register({ ...this.loginValue, ...this.registerValue, ...this.adharValue, createdAt: new Date() }).subscribe(() => {
                 this.router.navigate(['/login'], { queryParams: { registered: true } });
             })
         );

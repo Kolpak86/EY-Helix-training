@@ -39,7 +39,7 @@ export class MonthGraphComponent implements OnInit, OnDestroy, Widget {
     private getChart() {
         this.subscription.add(
             this.user.getUsers().subscribe((users) => {
-                const stringDates = users.map(({ createdAt }) => createdAt.split('T')[0]);
+                const stringDates = users.map(({ createdAt }) => (createdAt as string).split('T')[0]);
 
                 const counts = getDuplicatesFromArray(stringDates);
                 const userDates = convertObjectToArray(counts);
