@@ -9,7 +9,8 @@ Run `npm start` for a dev server adn json server. Navigate to `http://localhost:
 ## Description
 
 
-This project uses ng-grid table and highcharts lib.
+This project uses ng-grid table and highcharts libs, bridge pattern, CdkPortal module
+
 
 ## Build
 
